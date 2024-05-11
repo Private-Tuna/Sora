@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
+        Debug.Log("Start");
         rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
+
         eulerAngX = this.transform.localEulerAngles.x;
         eulerAngY = this.transform.localEulerAngles.y;
         eulerAngZ = this.transform.localEulerAngles.z;
@@ -43,18 +45,22 @@ public class PlayerController : MonoBehaviour
         */
         if (Input.GetKey(KeyCode.D))
         {
+            Debug.Log("Right");
             this.transform.Rotate(Vector3.back * speed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
+            Debug.Log("Left");
             this.transform.Rotate(Vector3.forward * speed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
+            Debug.Log("Forward");
             this.transform.Rotate(Vector3.right * speed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
+            Debug.Log("Back");
             this.transform.Rotate(Vector3.left * speed * Time.deltaTime);
         }
     }
