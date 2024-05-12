@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 274409980}
   - component: {fileID: 274409979}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Almighty Creator Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8af29b88ac817141a595ba7cff0ef77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefab: {fileID: 7349535761180199364, guid: 843e8584d3d1a184b84a105a49c28fab,
+  floorPrefab: {fileID: 8557257597453266878, guid: f806164904337894cb97a4140e536827,
     type: 3}
-  wallPrefab: {fileID: 4780312224036113606, guid: 3883b997628e6c142a7c6d43654c5741,
+  wallPrefab: {fileID: 2294852759281654958, guid: 049fc7100af84764ab0e2b1f2adcbe61,
     type: 3}
   holePrefab: {fileID: 8862320454902963684, guid: e55e2e4b10ba92f4fab4db6cca3b673c,
     type: 3}

@@ -57,12 +57,17 @@ public class MapGenerator : MonoBehaviour
                     Debug.Log("Element " + i + ":" + j + " is " + map[i, j]);
                     if (map[i, j] == wall)
                     {
-                        Instantiate(wallPrefab, new Vector3(i, 0, j), Quaternion.identity);
+
+                        Instantiate(dic[map[i, j]], new Vector3(i, 0.5f, j), Quaternion.Euler(90, 0, 0));
+                    }
+                    else if (map[i, j] == hole) {
+                        continue;
                     }
                     else
                     {
-                        Instantiate(dic[map[i,j]], new Vector3(i, 0, j), Quaternion.identity);
+                        Instantiate(dic[map[i, j]], new Vector3(i, 0, j), Quaternion.identity);
                     }
+                }
             }
             generated = 1;
             }
