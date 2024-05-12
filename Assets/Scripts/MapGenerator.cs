@@ -55,7 +55,18 @@ public class MapGenerator : MonoBehaviour
             for (int i = 0; i < map.GetLength(0); i++) {
                 for (int j = 0; j < map.GetLength(1); j++) {
                     Debug.Log("Element " + i + ":" + j + " is " + map[i, j]);
-                    Instantiate(dic[map[i,j]], new Vector3(i, 0, j), Quaternion.identity);
+                    if (map[i, j] == wall)
+                    {
+
+                        Instantiate(dic[map[i, j]], new Vector3(i, 0.5f, j), Quaternion.Euler(90, 0, 0));
+                    }
+                    else if (map[i, j] == hole) {
+                        continue;
+                    }
+                    else
+                    {
+                        Instantiate(dic[map[i, j]], new Vector3(i, 0, j), Quaternion.identity);
+                    }
                 }
             }
             generated = 1;
