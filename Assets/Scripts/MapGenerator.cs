@@ -59,7 +59,6 @@ public class MapGenerator : MonoBehaviour
                 }
             }
             generated = 1;
-            }
         }
 
     }
