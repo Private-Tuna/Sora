@@ -9,9 +9,12 @@ public class MapGenerator : MonoBehaviour
     private int floor = 1;
     private int wall = 2;
     private int hole = 3;
+
     public GameObject floorPrefab;
     public GameObject wallPrefab;
     public GameObject holePrefab;
+    
+    Dictionary<int, GameObject> dic = new Dictionary<int, GameObject>();
 
     private int[,] map = new int[5, 5] {
     {1, 1, 2, 1, 3},
@@ -30,6 +33,11 @@ public class MapGenerator : MonoBehaviour
     void Start()
     {
         Debug.Log("Start");
+
+        dic.Add(1, floorPrefab);
+        dic.Add(2, wallPrefab);
+        dic.Add(3, holePrefab);
+
         /*for (int i = 0; i < map.GetLength(0); i++)
         {
             for (int j = 0; j < map.GetLength(1); j++)
@@ -47,20 +55,17 @@ public class MapGenerator : MonoBehaviour
             for (int i = 0; i < map.GetLength(0); i++) {
                 for (int j = 0; j < map.GetLength(1); j++) {
                     Debug.Log("Element " + i + ":" + j + " is " + map[i, j]);
-                    if (map[i, j] == floor)
+                    if (map[i, j] == wall)
                     {
-                        Instantiate(floorPrefab, new Vector3(i, 0, j), Quaternion.identity);
+                        Instantiate(wallPrefab, new Vector3(i, .5f, j), Quaternion.identity);
                     }
-                    else if (map[i, j] == wall)
+                    else
                     {
-                        Instantiate(wallPrefab, new Vector3(i, 0.5f, j), Quaternion.identity);
+                        Instantiate(dic[map[i,j]], new Vector3(i, 0, j), Quaternion.identity);
                     }
-                    else if (map[i, j] == hole) {
-                        Instantiate(holePrefab, new Vector3(i, 0, j), Quaternion.identity);
-                    }
-                }
             }
             generated = 1;
+            }
         }
 
     }
