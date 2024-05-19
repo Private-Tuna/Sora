@@ -7,14 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public bool isFlat = true;
     private Rigidbody rb;
-    private float torque;
+    // private float torque;
 
     [SerializeField] float speed = 1f;
-    [SerializeField] float eulerAngX;
-    [SerializeField] float eulerAngY;
-    [SerializeField] float eulerAngZ;
+    // [SerializeField] float eulerAngX;
+    // [SerializeField] float eulerAngY;
+    // [SerializeField] float eulerAngZ;
 
-    // Start is called before the first frame update
     void Start(){
         rb = GetComponent<Rigidbody>();
     }
@@ -27,7 +26,7 @@ public class PlayerController : MonoBehaviour
             tilt = Quaternion.Euler(90,0,0) * tilt;
         }
 
-        rb.AddForce(tilt);
+        rb.AddForce(tilt * speed);
 
         // eulerAngX = this.transform.localEulerAngles.x;
         // eulerAngY = this.transform.localEulerAngles.y;

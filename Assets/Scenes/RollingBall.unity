@@ -557,7 +557,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlat: 1
-  speed: 20
-  eulerAngX: 0
-  eulerAngY: 0
-  eulerAngZ: 0
+  speed: 5
