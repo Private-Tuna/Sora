@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public bool isFlat = true;
     private Rigidbody rb;
     private float torque;
+
     [SerializeField] float speed = 1f;
     [SerializeField] float eulerAngX;
     [SerializeField] float eulerAngY;
@@ -15,15 +16,22 @@ public class PlayerController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        Debug.Log("Start");
         rb = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
 
-        eulerAngX = this.transform.localEulerAngles.x;
-        eulerAngY = this.transform.localEulerAngles.y;
-        eulerAngZ = this.transform.localEulerAngles.z;
+        Vector3 tilt = Input.acceleration;
+
+        if (isFlat) {
+            tilt = Quaternion.Euler(90,0,0) * tilt;
+        }
+
+        rb.AddForce(tilt);
+
+        // eulerAngX = this.transform.localEulerAngles.x;
+        // eulerAngY = this.transform.localEulerAngles.y;
+        // eulerAngZ = this.transform.localEulerAngles.z;
       
         /*
         //Movement, based on camera platform rotates right for d, left for s, forward w, back s. clamps not working right now idk why
